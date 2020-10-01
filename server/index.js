@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // postgres client setup
 const { Pool } = require("pg");
-const pgCient = new Pool({
+const pgClient = new Pool({
   user: keys.pgUser,
   host: keys.pgHost,
   database: keys.pgDatabase,
@@ -20,7 +20,7 @@ const pgCient = new Pool({
   port: keys.pgPort
 });
 
-pgClient.on('error', () => console.log("lost pg connection"));
+pgClient.on('error', () => { console.log("lost pg connection") } );
 
 pgClient
   .query("CREATE TABLE IF NOT EXISTS values (number INT)")
