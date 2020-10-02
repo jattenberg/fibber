@@ -19,6 +19,10 @@ services:
     ports:
       - '3050:80'
 
+    depends_on:
+      - api
+      - client
+
   api:
     build:
       dockerfile: Dockerfile.dev
@@ -37,6 +41,10 @@ services:
       - PGPASSWORD=postgres_password
       - PGPORT=5432
 
+    depends_on:
+      - postgres
+      - redis
+
   client:
     build:
       dockerfile: Dockerfile.dev
@@ -45,6 +53,8 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
+    
+    stdin_open: true
 
   worker:
     build:
