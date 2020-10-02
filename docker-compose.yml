@@ -10,10 +10,16 @@ services:
     image: "redis:latest"
 
   nginx:
-    image: "nginx:latest"
-        
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    
+    restart: always
+    
+    ports:
+      - '3050:80'
 
-  server:
+  api:
     build:
       dockerfile: Dockerfile.dev
       context: ./server
