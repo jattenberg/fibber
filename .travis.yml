@@ -16,3 +16,10 @@ after_success:
   - docker build -t docker/fibber-worker ./worker 
   - docker build -t docker/fibber-nginx ./nginx 
   - docker build -t docker/fibber-server ./server
+  # docker login to cli
+  - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --password_stdin
+  # publish images to docker hub
+  - docker push docker/fibber-client
+  - docker push docker/fibber-worker
+  - docker push docker/fibber-nginx
+  - docker push docker/fibber-server
