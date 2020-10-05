@@ -6,27 +6,27 @@
       "image": "downer/fibber-client",
       "hostname": "client",
       "essential": false,
-      "memory": 256
+      "memory": 512
     },
     {
       "name": "server",
       "image": "downer/fibber-server",
       "hostname": "api",
       "essential": false,
-      "memory": 256
+      "memory": 512
     },
     {
       "name": "worker",
       "image": "downer/fibber-worker",
       "essential": false,
-      "memory": 256
+      "memory": 512
     },
     {
       "name": "nginx",
       "image": "downer/fibber-nginx",
       "hostname": "nginx",
       "essential": true,
-      "memory": 256,
+      "memory": 512,
       "portMappings": [
         {
           "hostPort": 80,
