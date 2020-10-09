@@ -5,8 +5,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - ports: 3050
-      targetPort: 3000
-      nodePort: 31515
+    - port: 3050 # port that other pods point to
+      targetPort: 3000 # pod that this nodeport is sending traffic to
+      nodePort: 31515 # publicly open port (put this in the browser)
   selector:
     component: web
