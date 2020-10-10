@@ -10,3 +10,4 @@ spec:
       image: downer/fibber-client
       ports:
         - containerPort: 3000
+      imagePullPolicy: "Always"       
