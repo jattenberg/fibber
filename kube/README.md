@@ -20,3 +20,4 @@ check status with:
 
 - `kubectl get pods`
 - `kubectl get services`
+
