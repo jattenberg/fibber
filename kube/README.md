@@ -9,7 +9,7 @@ once minikube and kubectl (and docker and hyperkit) are running locally
 - `minikube start --driver=hyperkit`
 - `minikube config set driver hyperkit`
 
-( we can check the ip with `minikube ip` )
+( we can check the ip with `minikube ip`, this is the location where we find the exposed ports, not localhost. )
 
 we then run:
 
@@ -21,3 +21,10 @@ check status with:
 - `kubectl get pods`
 - `kubectl get services`
 
+we can kill / delete with:
+
+- `kubectl delete -f client-pod.yaml`
+
+to set up a deployment we make the deployment yaml then apply it:
+
+- `kubectl apply -f client-depolyment.yaml`
