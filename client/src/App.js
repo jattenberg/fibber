@@ -12,7 +12,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Let's go Crazy with Fibonacci</h1>
+            <h1 className="App-title">Fib Master 9000</h1>
             <Link to="/">Home</Link><div class="horizontalgap" style={{width:'10px'}}></div><Link to="/otherpage">Other Page</Link>
           </header>
           <div>
