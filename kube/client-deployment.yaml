@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: client
-          image: downer/multi-client
+          image: downer/fibber-client
           ports:
             - containerPort: 3000
