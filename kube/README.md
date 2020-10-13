@@ -28,3 +28,17 @@ we can kill / delete with:
 to set up a deployment we make the deployment yaml then apply it:
 
 - `kubectl apply -f client-depolyment.yaml`
+
+to update an image:
+
+- `docker build -t my-docker-name/my-image-name:some-version .`
+- (to use the git sha as a version, try `$(git rev-version --verify HEAD)`)
+- `docker push my-docker-name/my-image-name:some-version`
+- `kubectl set image deployment/(object-name) client=my-docker-name/my-image-name:some-version`
+
+eg:
+`pushd ../client\
+       && docker build -t downer/fibber-client:$(git rev-parse --verify HEAD) .\
+       && docker push downer/fibber-client:$(git rev-parse --verify HEAD)\
+       && popd\
+       && kubectl set image deployment/client-deployment client=downer/fibber-client:$(git rev-parse --verify HEAD)`
