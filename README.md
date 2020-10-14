@@ -4,6 +4,7 @@
 
 faffing with fibonacci in a highly distributed way
 
+final version used for elastic beanstalk
 
 ### AWS Beanstalk / ECS Cheat Sheet:
 
