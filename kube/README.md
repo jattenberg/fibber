@@ -42,3 +42,8 @@ eg:
        && docker push downer/fibber-client:$(git rev-parse --verify HEAD)\
        && popd\
        && kubectl set image deployment/client-deployment client=downer/fibber-client:$(git rev-parse --verify HEAD)`
+
+to make a secret:
+`kubectl create secret generic <secret name> --from-literal key=value` 
+where `generic` are arbitrary key-value pairs, `<secret name>` is used to refer to this secret in kube configs
+and `--from-literal` means, add the secret in this command as opposed to reading in from a file. 

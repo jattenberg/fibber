@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: client-depolyment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      component: web
+
+  template:
+    metadata:
+      labels:
+        component: web
+
+    spec:
+      containers:
+        - name: client
+          image: downer/fibber-client
+          ports:
+            - containerPort: 3000
