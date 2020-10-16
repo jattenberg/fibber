@@ -16,20 +16,20 @@ we then run:
 - `kubectl apply -f client-pod.yaml`
 - `kubectl apply -f client-node-port.yaml`
 
-check status with:
+### check status with:
 
 - `kubectl get pods`
 - `kubectl get services`
 
-we can kill / delete with:
+### we can kill / delete with:
 
 - `kubectl delete -f client-pod.yaml`
 
-to set up a deployment we make the deployment yaml then apply it:
+### to set up a deployment we make the deployment yaml then apply it:
 
 - `kubectl apply -f client-depolyment.yaml`
 
-to update an image:
+### to update an image:
 
 - `docker build -t my-docker-name/my-image-name:some-version .`
 - (to use the git sha as a version, try `$(git rev-version --verify HEAD)`)
@@ -43,7 +43,13 @@ eg:
        && popd\
        && kubectl set image deployment/client-deployment client=downer/fibber-client:$(git rev-parse --verify HEAD)`
 
-to make a secret:
+### to make a secret:
+
 `kubectl create secret generic <secret name> --from-literal key=value` 
 where `generic` are arbitrary key-value pairs, `<secret name>` is used to refer to this secret in kube configs
 and `--from-literal` means, add the secret in this command as opposed to reading in from a file. 
+
+### to get the nginx ingress service running:
+- `minikube addons enable ingress`
+- for some reason, i had a bug, google provided the answer. `kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission`. see https://github.com/kubernetes/ingress-nginx/issues/5401 and https://stackoverflow.com/questions/61365202/nginx-ingress-service-ingress-nginx-controller-admission-not-found for more info
+- you can then get the ip using `minikube ip` and go to this in the browser. The ingress layer will do the appropriate port mapping
