@@ -53,3 +53,7 @@ and `--from-literal` means, add the secret in this command as opposed to reading
 - `minikube addons enable ingress`
 - for some reason, i had a bug, google provided the answer. `kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission`. see https://github.com/kubernetes/ingress-nginx/issues/5401 and https://stackoverflow.com/questions/61365202/nginx-ingress-service-ingress-nginx-controller-admission-not-found for more info
 - you can then get the ip using `minikube ip` and go to this in the browser. The ingress layer will do the appropriate port mapping
+
+### Daskboard
+we can get to the minikube dashboard using the command `minikube dashboard`
+
