@@ -33,7 +33,7 @@ spec:
               mountPath: /var/lib/postgresql/data
               subPath: postgres
           env:
-            - name: POSTGRESS_PASSWORD
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: pgpassword
