@@ -25,7 +25,7 @@ spec:
 
       containers:
         - name: postgres
-          image: postgres
+          image: downer/fibber-postgres
           ports:
             - containerPort: 5432
           volumeMounts:

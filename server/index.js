@@ -20,12 +20,6 @@ const pgClient = new Pool({
   port: keys.pgPort
 });
 
-pgClient.on('connect', () => {
-  pgClient
-    .query('CREATE TABLE IF NOT EXISTS fib_values (number INT)')
-    .catch((err) => console.log("WE HAVE AN ERROR!" + err));
-});
-
 // redis client setup
 const redis = require("redis");
 
@@ -57,7 +51,7 @@ app.get("/values/current", async (req, res) => {
 
 app.post("/values", async (req, res) => {
   const index = parseInt(req.body.index); 
-  if (index > 60) {
+  if (index > 45) {
     return res.status(422).send("index too high!");
   }
 
